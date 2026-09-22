@@ -1,70 +1,50 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-<modelVersion>4.0.0</modelVersion>
-<groupId>com.aizen</groupId>
-<artifactId>aizen</artifactId>
-<version>1.0.0</version>
-<packaging>jar</packaging>
-<name>AiZen - AI Resume & Career Builder</name>
-<properties>
-<maven.compiler.release>21</maven.compiler.release>
-<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-<javafx.version>21.0.2</javafx.version>
-<jackson.version>2.17.0</jackson.version>
-<pdfbox.version>3.0.2</pdfbox.version>
-<sqlite.version>3.45.1.0</sqlite.version>
-<main.class>com.aizen.MainApp</main.class>
-</properties>
-<dependencies>
-<dependency>
-<groupId>org.openjfx</groupId>
-<artifactId>javafx-controls</artifactId>
-<version>${javafx.version}</version>
-</dependency>
-<dependency>
-<groupId>org.openjfx</groupId>
-<artifactId>javafx-fxml</artifactId>
-<version>${javafx.version}</version>
-</dependency>
-<dependency>
-<groupId>org.xerial</groupId>
-<artifactId>sqlite-jdbc</artifactId>
-<version>${sqlite.version}</version>
-</dependency>
-<dependency>
-<groupId>com.fasterxml.jackson.core</groupId>
-<artifactId>jackson-databind</artifactId>
-<version>${jackson.version}</version>
-</dependency>
-<dependency>
-<groupId>org.apache.pdfbox</groupId>
-<artifactId>pdfbox</artifactId>
-<version>${pdfbox.version}</version>
-</dependency>
-<!--  silences the SLF4J "no provider" warning printed by sqlite-jdbc  -->
-<dependency>
-<groupId>org.slf4j</groupId>
-<artifactId>slf4j-nop</artifactId>
-<version>2.0.12</version>
-</dependency>
-</dependencies>
-<build>
-<plugins>
-<plugin>
-<groupId>org.apache.maven.plugins</groupId>
-<artifactId>maven-compiler-plugin</artifactId>
-<version>3.12.1</version>
-<configuration>
-<release>21</release>
-</configuration>
-</plugin>
-<plugin>
-<groupId>org.openjfx</groupId>
-<artifactId>javafx-maven-plugin</artifactId>
-<version>0.0.8</version>
-<configuration>
-<mainClass>${main.class}</mainClass>
-</configuration>
-</plugin>
-</plugins>
-</build>
-</project>
+# AiZen - AI Resume & Career Builder
+
+JavaFX 21 + SQLite + Jackson + PDFBox desktop app (Java 21, Maven).
+
+## Project layout
+```
+pom.xml
+src/main/java/com/aizen/
+  MainApp.java
+  model/      Person(abstract) > Applicant > Student, Experience, Education, Project,
+              Certification, Skill, Resume, User
+  db/         Database, DatabaseSetup (auto-creates tables)
+  dao/        GenericDAO<T>, UserDAO, ResumeDAO
+  controller/ Login, Main, Dashboard, Resume, CoverLetter, SavedResume, Preview
+  service/    ResumeService, CoverLetterService, ApiService, JsonService, PdfService,
+              AuthService, GenerationResult
+  thread/     TaskManager (3-thread pool), SaveTask, ApiTask, PdfTask
+  exception/  DatabaseException, ValidationException
+  util/       JsonUtil, ValidationUtil, PasswordUtil, Session, SceneManager
+  ui/         DynamicSection (add/remove row component)
+src/main/resources/
+  fxml/       login, main, dashboard, resume, cover_letter, saved_resumes, preview
+  css/        style.css (light), dark.css (dark overrides)
+```
+
+## Setup
+1. Install JDK 21 and Maven 3.9+.
+2. IDE import: File > Open / Import > select `pom.xml` (IntelliJ: "Open as Project";
+   Eclipse: Import > Existing Maven Projects; VS Code: open the folder). Set project SDK to 21.
+3. (Optional) enable Gemini:
+   - Windows (PowerShell): `setx AIZEN_API_KEY "your-key"` then restart the terminal/IDE
+   - macOS/Linux: `export AIZEN_API_KEY="your-key"`
+   Optional: `AIZEN_MODEL` overrides the model (default `gemini-1.5-flash`; use a current
+   model such as `gemini-2.0-flash` if Google has retired 1.5).
+   Without a key (or offline) the app uses the local generator - it never crashes.
+4. Run: `mvn clean javafx:run`
+
+Data is stored in `~/.aizen/aizen.db`.
+
+## How the coursework requirements are met
+| Requirement | Where |
+|---|---|
+| Inheritance & abstraction | `Person` (abstract `getRole()`) -> `Applicant` -> `Student` |
+| Polymorphism / overriding | `getRole()` overridden in `Applicant`/`Student`; `ResumeService.toProfile()` returns a `Person`, `DashboardController` only calls `getRole()` |
+| Method overloading | `Applicant.updateProfile(2/3/4 Strings)`, `Student.updateProfile(String,double)` |
+| Encapsulation | private fields + validating setters in `Person`/`Applicant`/`Student` |
+| Generics & collections | `GenericDAO<T>`, `ArrayList` children in `Resume`, `ObservableList` in TableView, `Task<T>` subclasses |
+| Multithreading | every DB / PDF / HTTP call runs in `SaveTask`/`PdfTask`/`ApiTask` via `TaskManager` (fixed pool of 3); `ProgressIndicator`s bound to `task.runningProperty()`; DB init runs in `Application.init()` |
+| Exception handling | `DatabaseException` (checked), `ValidationException` (unchecked); `ResumeDAO` uses try/catch/finally with rollback |
+| Async REST | `ApiService.generateAsync()` uses `HttpClient.sendAsync` |
