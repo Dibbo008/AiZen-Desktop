@@ -1,9 +1,9 @@
-# AiZen - AI Resume & Career Builder
+# CareerForge - AI Resume & Career Builder
 
 JavaFX 21 + SQLite + Jackson + PDFBox desktop app (Java 21, Maven).
 
 ## Project layout
-```
+
 pom.xml
 src/main/java/com/aizen/
   MainApp.java
@@ -21,7 +21,6 @@ src/main/java/com/aizen/
 src/main/resources/
   fxml/       login, main, dashboard, resume, cover_letter, saved_resumes, preview
   css/        style.css (light), dark.css (dark overrides)
-```
 
 ## Setup
 1. Install JDK 21 and Maven 3.9+.
