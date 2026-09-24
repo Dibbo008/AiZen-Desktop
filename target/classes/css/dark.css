@@ -1,47 +1,164 @@
 /* ===================================================================
-   AiZen - "Ledger" theme (Ink / dark, loaded on top of style.css)
-   Only the colour variables and a few Modena base colours change;
-   the sidebar keeps the same ink identity as the light theme.
+   AiZen / CareerForge - "Nova" theme (Ink / dark, futuristic neon)
+   Loaded on top of style.css. Deep space background with electric
+   cyan + violet glow accents. Only colour variables and a handful of
+   selectors are overridden here - structure/layout stays untouched.
    =================================================================== */
 .root {
-    -az-ink: #efece3;
-    -az-ink-soft: #d8d3c4;
-    -az-bg: #14151b;
-    -az-surface: #1c1e26;
-    -az-surface-alt: #191a21;
-    -az-text: #e9e6dc;
-    -az-muted: #9b9587;
-    -az-border: #333648;
-    -az-accent: #c79a4b;
-    -az-accent-hover: #ddb05f;
-    -az-accent-soft: #2c2717;
-    -az-danger: #d98080;
-    -az-danger-soft: #3a2222;
-    -az-success: #7fbf98;
+    -az-ink: #eaf6ff;
+    -az-ink-soft: #c6d6e8;
+    -az-bg: #05070c;
+    -az-surface: #0c1220;
+    -az-surface-alt: #0a0e18;
+    -az-text: #e7edf5;
+    -az-muted: #7f8fa8;
+    -az-border: #1d2b41;
+    -az-accent: #45e0ff;
+    -az-accent-hover: #7ff2ff;
+    -az-accent-soft: #12283a;
+    -az-danger: #ff6b81;
+    -az-danger-soft: #331521;
+    -az-success: #4dffb4;
 
-    -fx-base: #1c1e26;
-    -fx-background: #14151b;
-    -fx-control-inner-background: #1c1e26;
-    -fx-focus-color: #c79a4b;
+    -fx-base: #0c1220;
+    -fx-background: #05070c;
+    -fx-control-inner-background: #0c1220;
+    -fx-focus-color: #45e0ff;
     -fx-faint-focus-color: transparent;
 }
 
-.primary-button {
-    -fx-text-fill: #171512;
+.label {
+    -fx-text-fill: -az-text;
+}
+
+/* ---------------- Login: deep-space gradient + neon brand glow ---------------- */
+.login-root {
+    -fx-background-color: linear-gradient(to bottom right, #05060a, #0c1830 45%, #170c2e 80%, #05060a);
 }
 
 .card {
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.55), 30, 0, 0, 10);
+    -fx-border-color: #223252;
+    -fx-effect: dropshadow(gaussian, rgba(69, 224, 255, 0.18), 34, 0, 0, 0),
+    dropshadow(gaussian, rgba(0, 0, 0, 0.6), 26, 0, 0, 12);
 }
 
-.login-root {
-    -fx-background-color: linear-gradient(to bottom right, #0d0e12, #1c1f28 55%, #121319);
+.brand-title {
+    -fx-text-fill: #7ff2ff;
+    -fx-border-color: transparent transparent #45e0ff transparent;
+    -fx-effect: dropshadow(gaussian, rgba(69, 224, 255, 0.65), 18, 0.3, 0, 0);
 }
 
+.form-title {
+    -fx-text-fill: #eaf6ff;
+}
+
+/* ---------------- Sidebar: same ink spine, now with a cyan hairline ---------------- */
+.sidebar {
+    -fx-background-color: #06080f;
+    -fx-border-color: transparent #12203a transparent transparent;
+    -fx-border-width: 0 1 0 0;
+}
+
+.sidebar-brand {
+    -fx-text-fill: #7ff2ff;
+    -fx-effect: dropshadow(gaussian, rgba(69, 224, 255, 0.5), 12, 0.25, 0, 0);
+}
+
+.nav-button:hover {
+    -fx-background-color: #101a2c;
+    -fx-text-fill: #7ff2ff;
+}
+
+.nav-active,
+.nav-active:hover {
+    -fx-background-color: #0e2436;
+    -fx-border-color: #45e0ff;
+    -fx-text-fill: #7ff2ff;
+    -fx-effect: dropshadow(gaussian, rgba(69, 224, 255, 0.45), 14, 0.2, 0, 0);
+}
+
+/* ---------------- Dashboard: hero banner with a violet-cyan glow seam ---------------- */
 .welcome-banner {
-    -fx-background-color: linear-gradient(to right, #101116, #20222c);
+    -fx-background-color: linear-gradient(to right, #0a0e1c, #142042 55%, #1d1440);
+    -fx-border-color: #45e0ff;
+    -fx-effect: dropshadow(gaussian, rgba(124, 92, 255, 0.35), 28, 0, 0, 10);
+}
+
+.banner-title {
+    -fx-effect: dropshadow(gaussian, rgba(69, 224, 255, 0.35), 10, 0.15, 0, 0);
+}
+
+.stat-card {
+    -fx-border-color: #1d2b41;
+    -fx-effect: dropshadow(gaussian, rgba(69, 224, 255, 0.10), 18, 0, 0, 0);
+}
+
+.stat-value {
+    -fx-text-fill: #7ff2ff;
+    -fx-effect: dropshadow(gaussian, rgba(69, 224, 255, 0.4), 10, 0.1, 0, 0);
+}
+
+.page-title {
+    -fx-text-fill: #eaf6ff;
+}
+
+/* ---------------- Buttons: neon gradient primary, glow on hover ---------------- */
+.primary-button {
+    -fx-background-color: linear-gradient(to right, #45e0ff, #7c5cff);
+    -fx-text-fill: #05070c;
+    -fx-effect: dropshadow(gaussian, rgba(69, 224, 255, 0.45), 16, 0.15, 0, 0);
+}
+
+.primary-button:hover {
+    -fx-background-color: linear-gradient(to right, #7ff2ff, #9c85ff);
+    -fx-effect: dropshadow(gaussian, rgba(69, 224, 255, 0.7), 22, 0.2, 0, 0);
+}
+
+.secondary-button {
+    -fx-border-color: #2a3d5c;
+    -fx-text-fill: #cfe8f5;
+}
+
+.secondary-button:hover {
+    -fx-background-color: #0e1a2c;
+    -fx-border-color: #45e0ff;
+    -fx-text-fill: #7ff2ff;
+    -fx-effect: dropshadow(gaussian, rgba(69, 224, 255, 0.25), 12, 0, 0, 0);
+}
+
+.danger-button:hover {
+    -fx-effect: dropshadow(gaussian, rgba(255, 107, 129, 0.35), 12, 0, 0, 0);
+}
+
+/* ---------------- Inputs: glowing focus ring ---------------- */
+.text-field:focused,
+.password-field:focused,
+.text-area:focused {
+    -fx-border-color: #45e0ff;
+    -fx-effect: dropshadow(gaussian, rgba(69, 224, 255, 0.4), 10, 0.1, 0, 0);
+}
+
+.preview-pane {
+    -fx-border-color: #1d2b41;
+}
+
+.preview-text {
+    -fx-text-fill: #9be8ff;
+}
+
+/* ---------------- Tables ---------------- */
+.table-view {
+    -fx-border-color: #1d2b41;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #10233a;
 }
 
 .table-row-cell:selected .table-cell {
-    -fx-text-fill: #e9e6dc;
+    -fx-text-fill: #7ff2ff;
+}
+
+.hyperlink {
+    -fx-text-fill: #7ff2ff;
 }
