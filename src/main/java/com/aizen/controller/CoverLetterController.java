@@ -41,7 +41,7 @@ public class CoverLetterController {
     private final ResumeService resumeService = new ResumeService();
 
     @FXML
-    private void initialize() {
+    private void initialize(){
         cbTone.setItems(FXCollections.observableArrayList("Professional", "Confident", "Friendly"));
         cbTone.setValue("Professional");
         cbResume.setConverter(new StringConverter<>() {
@@ -62,15 +62,13 @@ public class CoverLetterController {
                 list -> cbResume.setItems(FXCollections.observableArrayList(list)),
                 ex -> statusLabel.setText("Could not load saved resumes: " + TaskManager.messageOf(ex)));
     }
-
     @FXML
-    private void onClearResume() {
+    private void onClearResume(){
         cbResume.getSelectionModel().clearSelection();
         cbResume.setValue(null);
     }
-
     @FXML
-    private void onGenerate() {
+    private void onGenerate(){
         final String role;
         final String company;
         try {
@@ -99,7 +97,6 @@ public class CoverLetterController {
             statusLabel.setText("Error: " + TaskManager.messageOf(ex));
         });
     }
-
     @FXML
     private void onCopy() {
         String text = taOutput.getText();
@@ -112,7 +109,6 @@ public class CoverLetterController {
         Clipboard.getSystemClipboard().setContent(content);
         statusLabel.setText("Copied to clipboard.");
     }
-
     @FXML
     private void onClearOutput() {
         taOutput.clear();
