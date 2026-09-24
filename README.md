@@ -1,4 +1,4 @@
-# AiZen - AI Resume & Career Builder
+# CareerForge - AI Resume & Career Builder
 
 JavaFX 21 + SQLite + Jackson + PDFBox desktop app (Java 21, Maven).
 
