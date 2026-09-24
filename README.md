@@ -1,49 +1,58 @@
-# CareerForge - AI Resume & Career Builder
+# CareerForge — AI Resume & Career Builder
 
-JavaFX 21 + SQLite + Jackson + PDFBox desktop app (Java 21, Maven).
+A JavaFX desktop application for building professional resumes and cover letters, backed by a local SQLite database and enhanced with Google Gemini AI. Built as a university Java coursework project demonstrating core object-oriented and concurrent programming principles.
 
-## Project layout
+## Features
 
-pom.xml
-src/main/java/com/aizen/
-  MainApp.java
-  model/      Person(abstract) > Applicant > Student, Experience, Education, Project,
-              Certification, Skill, Resume, User
-  db/         Database, DatabaseSetup (auto-creates tables)
-  dao/        GenericDAO<T>, UserDAO, ResumeDAO
-  controller/ Login, Main, Dashboard, Resume, CoverLetter, SavedResume, Preview
-  service/    ResumeService, CoverLetterService, ApiService, JsonService, PdfService,
-              AuthService, GenerationResult
-  thread/     TaskManager (3-thread pool), SaveTask, ApiTask, PdfTask
-  exception/  DatabaseException, ValidationException
-  util/       JsonUtil, ValidationUtil, PasswordUtil, Session, SceneManager
-  ui/         DynamicSection (add/remove row component)
-src/main/resources/
-  fxml/       login, main, dashboard, resume, cover_letter, saved_resumes, preview
-  css/        style.css (light), dark.css (dark overrides)
+- Secure account system with salted password hashing
+- Dynamic resume builder with add/remove sections and live preview
+- Classic and Modern resume templates
+- AI-generated summaries and cover letters, with automatic offline fallback
+- PDF and JSON export/import
+- Searchable saved-resumes table with edit, duplicate, and delete
+- Light and dark themes
 
-## Setup
-1. Install JDK 21 and Maven 3.9+.
-2. IDE import: File > Open / Import > select `pom.xml` (IntelliJ: "Open as Project";
-   Eclipse: Import > Existing Maven Projects; VS Code: open the folder). Set project SDK to 21.
-3. (Optional) enable Gemini:
-   - Windows (PowerShell): `setx AIZEN_API_KEY "your-key"` then restart the terminal/IDE
-   - macOS/Linux: `export AIZEN_API_KEY="your-key"`
-   Optional: `AIZEN_MODEL` overrides the model (default `gemini-1.5-flash`; use a current
-   model such as `gemini-2.0-flash` if Google has retired 1.5).
-   Without a key (or offline) the app uses the local generator - it never crashes.
-4. Run: `mvn clean javafx:run`
+## Tech Stack
 
-Data is stored in `~/.aizen/aizen.db`.
+Java 21 · JavaFX 21 · Maven · SQLite (JDBC) · Jackson · Apache PDFBox · Google Gemini API
 
-## How the coursework requirements are met
-| Requirement | Where |
+## Project Structure
+
+**Requirements:** JDK 21, Maven 3.9+ (or an IDE's bundled Maven)
+
+```bash
+mvn clean javafx:run
+```
+
+On first launch, CareerForge creates its SQLite database at `~/.aizen/aizen.db`.
+
+## Enabling AI Generation (Optional)
+
+The app works fully offline by default. To enable live Gemini-powered generation:
+
+1. Get a free API key from [Google AI Studio](https://aistudio.google.com/apikey).
+2. Set the environment variable `AIZEN_API_KEY` to your key.
+3. Optionally set `AIZEN_MODEL` to override the default model.
+
+Without a key, or if a request fails, the app automatically falls back to a local text generator.
+
+## Database
+
+SQLite with seven tables — `users`, `resumes`, and five resume-child tables (`experiences`, `education`, `projects`, `certifications`, `skills`) — created automatically on first run. Child tables cascade-delete with their parent resume. All queries use `PreparedStatement`, and resume writes are transactional.
+
+## Academic Concepts Demonstrated
+
+| Concept | Implementation |
 |---|---|
-| Inheritance & abstraction | `Person` (abstract `getRole()`) -> `Applicant` -> `Student` |
-| Polymorphism / overriding | `getRole()` overridden in `Applicant`/`Student`; `ResumeService.toProfile()` returns a `Person`, `DashboardController` only calls `getRole()` |
-| Method overloading | `Applicant.updateProfile(2/3/4 Strings)`, `Student.updateProfile(String,double)` |
-| Encapsulation | private fields + validating setters in `Person`/`Applicant`/`Student` |
-| Generics & collections | `GenericDAO<T>`, `ArrayList` children in `Resume`, `ObservableList` in TableView, `Task<T>` subclasses |
-| Multithreading | every DB / PDF / HTTP call runs in `SaveTask`/`PdfTask`/`ApiTask` via `TaskManager` (fixed pool of 3); `ProgressIndicator`s bound to `task.runningProperty()`; DB init runs in `Application.init()` |
-| Exception handling | `DatabaseException` (checked), `ValidationException` (unchecked); `ResumeDAO` uses try/catch/finally with rollback |
-| Async REST | `ApiService.generateAsync()` uses `HttpClient.sendAsync` |
+| Abstraction & inheritance | `Person` (abstract) → `Applicant` → `Student` |
+| Polymorphism | Overridden `getRole()`; `ResumeService.toProfile()` |
+| Method overloading | `Applicant.updateProfile(...)` in multiple forms |
+| Encapsulation | Validated setters throughout `model/` |
+| Generics & collections | `GenericDAO<T>`, `ObservableList`, `Task<T>` |
+| Multithreading | 3-thread pool via `TaskManager`, keeping the UI responsive |
+| Exception handling | Checked/unchecked exceptions with transactional rollback |
+| Asynchronous networking | `HttpClient.sendAsync()` with `CompletableFuture` |
+
+---
+
+*Developed for academic coursework purposes.*
