@@ -32,7 +32,7 @@ public class ApiService {
     public static String apiKey() {
         String key = System.getenv("AIZEN_API_KEY");
         if (key == null || key.isBlank()) {
-            key = "AQ.Ab8RN6IGiNIGIC1ltI0ovEsIpmaPdIXxCGTnFC0yqXInYS2geA";
+            key = "XXXXXXXXXXXXXXXXXXXXXXXXXX";
         }
         return key.trim();
     }
