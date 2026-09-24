@@ -1,0 +1,387 @@
+/* ===================================================================
+   AiZen - "Ledger" theme (Paper / light, base stylesheet, always loaded)
+   Identity: executive stationery - deep ink, warm paper, muted brass.
+   Custom colours use the -az- prefix so they never clash with Modena.
+   =================================================================== */
+.root {
+    -az-ink: #17181f;
+    -az-ink-soft: #2a2c37;
+    -az-bg: #eeece3;
+    -az-surface: #fbfaf5;
+    -az-surface-alt: #f3f1e8;
+    -az-text: #201d19;
+    -az-muted: #766f61;
+    -az-border: #ddd6c4;
+    -az-accent: #93712f;
+    -az-accent-hover: #7a5c24;
+    -az-accent-soft: #f0e6cd;
+    -az-danger: #8c3b3b;
+    -az-danger-soft: #f3e0df;
+    -az-success: #3f6c4f;
+
+    -fx-font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    -fx-font-size: 13px;
+    -fx-background-color: -az-bg;
+}
+
+.label {
+    -fx-text-fill: -az-text;
+}
+
+.muted {
+    -fx-text-fill: -az-muted;
+}
+
+/* ---------------- Login ---------------- */
+.login-root {
+    -fx-background-color: linear-gradient(to bottom right, #14161c, #2c303d 55%, #1b1e27);
+}
+
+.card {
+    -fx-background-color: -az-surface;
+    -fx-background-radius: 4;
+    -fx-border-color: -az-border;
+    -fx-border-radius: 4;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(gaussian, rgba(20, 18, 12, 0.22), 30, 0, 0, 10);
+}
+
+.brand-title {
+    -fx-font-family: "Georgia", "Cambria", serif;
+    -fx-font-size: 32px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -az-ink;
+    -fx-border-color: transparent transparent -az-accent transparent;
+    -fx-border-width: 0 0 2 0;
+    -fx-padding: 0 2 8 2;
+}
+
+.form-title {
+    -fx-font-family: "Georgia", "Cambria", serif;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -az-ink;
+}
+
+/* ---------------- Sidebar (brand spine - stays ink in both themes) ---------------- */
+.sidebar {
+    -fx-background-color: #14161c;
+    -fx-border-color: transparent #26211a transparent transparent;
+    -fx-border-width: 0 1 0 0;
+}
+
+.sidebar-brand {
+    -fx-font-family: "Georgia", "Cambria", serif;
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #f3efe4;
+}
+
+.sidebar-sub {
+    -fx-text-fill: #8b8577;
+    -fx-font-size: 11.5px;
+}
+
+.sidebar-user {
+    -fx-text-fill: #8b8577;
+    -fx-font-size: 12px;
+    -fx-padding: 0 0 8 4;
+}
+
+.nav-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #c9c4b6;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 10 14;
+    -fx-background-radius: 0;
+    -fx-border-width: 0 0 0 3;
+    -fx-border-color: transparent;
+    -fx-cursor: hand;
+    -fx-font-size: 13.5px;
+}
+
+.nav-button:hover {
+    -fx-background-color: #1e2029;
+    -fx-text-fill: #f3efe4;
+}
+
+.nav-active,
+.nav-active:hover {
+    -fx-background-color: #221d12;
+    -fx-border-color: #c7a44f;
+    -fx-text-fill: #e9c77c;
+    -fx-font-weight: bold;
+}
+
+.content-area {
+    -fx-background-color: -az-bg;
+}
+
+/* ---------------- Dashboard ---------------- */
+.welcome-banner {
+    -fx-background-color: linear-gradient(to right, #191b22, #2d303c);
+    -fx-background-radius: 6;
+    -fx-border-color: #93712f;
+    -fx-border-width: 0 0 0 4;
+    -fx-effect: dropshadow(gaussian, rgba(20, 18, 12, 0.28), 24, 0, 0, 8);
+}
+
+.banner-title {
+    -fx-font-family: "Georgia", "Cambria", serif;
+    -fx-font-size: 25px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #f3efe4;
+}
+
+.banner-sub {
+    -fx-font-size: 13.5px;
+    -fx-text-fill: #b7b0a0;
+}
+
+.stat-card {
+    -fx-background-color: -az-surface;
+    -fx-background-radius: 4;
+    -fx-border-color: -az-border;
+    -fx-border-radius: 4;
+    -fx-border-width: 1;
+    -fx-padding: 20;
+}
+
+.stat-value {
+    -fx-font-family: "Georgia", "Cambria", serif;
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -az-ink;
+}
+
+.stat-label {
+    -fx-text-fill: -az-muted;
+    -fx-font-size: 12px;
+}
+
+.section-heading {
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -az-ink;
+}
+
+.page-title {
+    -fx-font-family: "Georgia", "Cambria", serif;
+    -fx-font-size: 19px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -az-ink;
+}
+
+/* ---------------- Toolbars / status ---------------- */
+.toolbar {
+    -fx-background-color: -az-surface;
+    -fx-border-color: transparent transparent -az-border transparent;
+}
+
+.status-bar {
+    -fx-background-color: -az-surface;
+    -fx-border-color: -az-border transparent transparent transparent;
+}
+
+.status-ok {
+    -fx-text-fill: -az-success;
+}
+
+.status-error {
+    -fx-text-fill: -az-danger;
+}
+
+/* ---------------- Buttons ---------------- */
+.primary-button {
+    -fx-background-color: -az-accent;
+    -fx-text-fill: #fbfaf5;
+    -fx-font-weight: bold;
+    -fx-background-radius: 3;
+    -fx-padding: 9 20;
+    -fx-cursor: hand;
+}
+
+.primary-button:hover {
+    -fx-background-color: -az-accent-hover;
+}
+
+.secondary-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: -az-ink;
+    -fx-border-color: -az-border;
+    -fx-border-width: 1;
+    -fx-font-weight: bold;
+    -fx-background-radius: 3;
+    -fx-border-radius: 3;
+    -fx-padding: 8 16;
+    -fx-cursor: hand;
+}
+
+.secondary-button:hover {
+    -fx-background-color: -az-surface-alt;
+    -fx-border-color: -az-accent;
+}
+
+.danger-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: -az-danger;
+    -fx-border-color: -az-danger-soft;
+    -fx-border-width: 1;
+    -fx-font-weight: bold;
+    -fx-background-radius: 3;
+    -fx-border-radius: 3;
+    -fx-padding: 8 16;
+    -fx-cursor: hand;
+}
+
+.danger-button:hover {
+    -fx-background-color: -az-danger-soft;
+}
+
+.danger-button-small {
+    -fx-background-color: transparent;
+    -fx-text-fill: -az-danger;
+    -fx-cursor: hand;
+    -fx-padding: 4 8;
+}
+
+.danger-button-small:hover {
+    -fx-background-color: -az-danger-soft;
+    -fx-background-radius: 3;
+}
+
+.primary-button:disabled,
+.secondary-button:disabled,
+.danger-button:disabled {
+    -fx-opacity: 0.5;
+}
+
+/* ---------------- Inputs ---------------- */
+.text-field,
+.password-field,
+.text-area,
+.combo-box-base,
+.choice-box {
+    -fx-background-color: -az-surface;
+    -fx-border-color: -az-border;
+    -fx-border-radius: 3;
+    -fx-background-radius: 3;
+    -fx-text-fill: -az-text;
+}
+
+.text-field,
+.password-field {
+    -fx-padding: 8 10;
+}
+
+.text-field:focused,
+.password-field:focused,
+.text-area:focused {
+    -fx-border-color: -az-accent;
+}
+
+.text-area .content {
+    -fx-background-color: -az-surface;
+    -fx-background-radius: 3;
+}
+
+.text-area {
+    -fx-text-fill: -az-text;
+    -fx-control-inner-background: -az-surface;
+}
+
+.text-field,
+.password-field {
+    -fx-control-inner-background: -az-surface;
+}
+
+.preview-text {
+    -fx-font-family: "Consolas", "Menlo", "DejaVu Sans Mono", monospace;
+    -fx-font-size: 12.5px;
+}
+
+.preview-pane {
+    -fx-background-color: -az-surface-alt;
+    -fx-border-color: transparent transparent transparent -az-border;
+    -fx-border-width: 0 0 0 1;
+}
+
+/* ---------------- Form sections ---------------- */
+.section-box {
+    -fx-background-color: -az-surface;
+    -fx-background-radius: 4;
+    -fx-border-color: -az-border;
+    -fx-border-radius: 4;
+    -fx-border-width: 1;
+}
+
+.section-title {
+    -fx-font-size: 14.5px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -az-ink;
+}
+
+.row-box {
+    -fx-background-color: -az-surface-alt;
+    -fx-background-radius: 3;
+    -fx-border-color: -az-border;
+    -fx-border-radius: 3;
+}
+
+/* ---------------- Containers ---------------- */
+.scroll-pane,
+.scroll-pane > .viewport {
+    -fx-background-color: transparent;
+}
+
+.scroll-pane.edge-to-edge {
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
+
+.split-pane {
+    -fx-background-color: transparent;
+}
+
+.table-view {
+    -fx-background-color: -az-surface;
+    -fx-background-radius: 4;
+    -fx-border-color: -az-border;
+    -fx-border-radius: 4;
+    -fx-border-width: 1;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: -az-surface-alt;
+}
+
+.table-view .column-header .label {
+    -fx-font-weight: bold;
+    -fx-text-fill: -az-ink;
+}
+
+.table-row-cell {
+    -fx-background-color: -az-surface;
+    -fx-table-cell-border-color: transparent;
+}
+
+.table-row-cell:odd {
+    -fx-background-color: -az-surface-alt;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: -az-accent-soft;
+}
+
+.table-row-cell:selected .table-cell {
+    -fx-text-fill: -az-text;
+}
+
+.table-cell {
+    -fx-text-fill: -az-text;
+    -fx-padding: 8 6;
+}
+
+.hyperlink {
+    -fx-text-fill: -az-accent;
+}

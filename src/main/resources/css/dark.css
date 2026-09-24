@@ -1,0 +1,47 @@
+/* ===================================================================
+   AiZen - "Ledger" theme (Ink / dark, loaded on top of style.css)
+   Only the colour variables and a few Modena base colours change;
+   the sidebar keeps the same ink identity as the light theme.
+   =================================================================== */
+.root {
+    -az-ink: #efece3;
+    -az-ink-soft: #d8d3c4;
+    -az-bg: #14151b;
+    -az-surface: #1c1e26;
+    -az-surface-alt: #191a21;
+    -az-text: #e9e6dc;
+    -az-muted: #9b9587;
+    -az-border: #333648;
+    -az-accent: #c79a4b;
+    -az-accent-hover: #ddb05f;
+    -az-accent-soft: #2c2717;
+    -az-danger: #d98080;
+    -az-danger-soft: #3a2222;
+    -az-success: #7fbf98;
+
+    -fx-base: #1c1e26;
+    -fx-background: #14151b;
+    -fx-control-inner-background: #1c1e26;
+    -fx-focus-color: #c79a4b;
+    -fx-faint-focus-color: transparent;
+}
+
+.primary-button {
+    -fx-text-fill: #171512;
+}
+
+.card {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.55), 30, 0, 0, 10);
+}
+
+.login-root {
+    -fx-background-color: linear-gradient(to bottom right, #0d0e12, #1c1f28 55%, #121319);
+}
+
+.welcome-banner {
+    -fx-background-color: linear-gradient(to right, #101116, #20222c);
+}
+
+.table-row-cell:selected .table-cell {
+    -fx-text-fill: #e9e6dc;
+}
