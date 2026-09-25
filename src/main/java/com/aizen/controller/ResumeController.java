@@ -51,6 +51,8 @@ public class ResumeController {
     @FXML private Button btnAi;
     @FXML private Label statusLabel;
     @FXML private ProgressIndicator progress;
+    @FXML private javafx.scene.control.ProgressBar strengthBar;
+    @FXML private Label strengthLabel;
 
     private final ResumeService resumeService = new ResumeService();
     private final JsonService jsonService = new JsonService();
@@ -211,7 +213,15 @@ public class ResumeController {
         if (loading) {
             return;
         }
-        previewArea.setText(resumeService.buildPreview(readForm()));
+        Resume r = readForm();
+        previewArea.setText(resumeService.buildPreview(r));
+        updateStrength(r);
+    }
+
+    private void updateStrength(Resume r) {
+        int score = resumeService.computeStrength(r);
+        strengthBar.setProgress(score / 100.0);
+        strengthLabel.setText(score + "%");
     }
 
     private void setStatus(String message, boolean error) {
