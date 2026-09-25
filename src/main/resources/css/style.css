@@ -580,3 +580,37 @@
     -fx-text-fill: -az-accent-hover;
     -fx-underline: true;
 }
+/* ---------------- Application Tracker (form + status badges) ---------------- */
+.at-form .text-field,
+.at-form .choice-box,
+.at-form .date-picker,
+.at-form .text-area {
+    -fx-background-radius: 8;
+}
+
+.at-badge {
+    -fx-font-size: 10.5px;
+    -fx-font-weight: bold;
+    -fx-padding: 3 10;
+    -fx-background-radius: 12;
+}
+
+.at-badge-applied {
+    -fx-text-fill: #0aa2c9;
+    -fx-background-color: rgba(10, 162, 201, 0.14);
+}
+
+.at-badge-interview {
+    -fx-text-fill: #a3790c;
+    -fx-background-color: rgba(214, 158, 15, 0.16);
+}
+
+.at-badge-offer {
+    -fx-text-fill: #1c8a4c;
+    -fx-background-color: rgba(28, 138, 76, 0.15);
+}
+
+.at-badge-rejected {
+    -fx-text-fill: #c23b3b;
+    -fx-background-color: rgba(194, 59, 59, 0.14);
+}
