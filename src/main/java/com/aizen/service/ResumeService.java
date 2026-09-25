@@ -102,6 +102,45 @@ public class ResumeService {
         return 0;
     }
 
+    // --------------------------------------------------------- strength score
+
+    /**
+     * Scores a resume 0-100 based on which sections are filled in:
+     * contact details (15), phone/location (5), job title (10), a real
+     * summary (20), at least one experience (20), at least one education
+     * entry (15), and skills (up to 15, partial credit below 3 skills).
+     */
+    public int computeStrength(Resume r) {
+        int score = 0;
+        if (!ValidationUtil.isBlank(r.getFullName()) && !ValidationUtil.isBlank(r.getEmail())) {
+            score += 15;
+        }
+        if (!ValidationUtil.isBlank(r.getPhone()) || !ValidationUtil.isBlank(r.getLocation())) {
+            score += 5;
+        }
+        if (!ValidationUtil.isBlank(r.getJobTitle())) {
+            score += 10;
+        }
+        if (!ValidationUtil.isBlank(r.getSummary()) && r.getSummary().trim().length() >= 30) {
+            score += 20;
+        }
+        if (!r.getExperiences().isEmpty()) {
+            score += 20;
+        }
+        if (!r.getEducations().isEmpty()) {
+            score += 15;
+        }
+        long skillCount = r.getSkills().stream()
+                .filter(s -> !ValidationUtil.isBlank(s.getName()))
+                .count();
+        if (skillCount >= 3) {
+            score += 15;
+        } else if (skillCount >= 1) {
+            score += 8;
+        }
+        return Math.min(100, score);
+    }
+
     // ----------------------------------------------------------------- preview
 
     public String buildPreview(Resume r) {
