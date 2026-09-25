@@ -13,6 +13,12 @@
             </padding>
             <Label text="Resume Builder" styleClass="page-title"/>
             <ProgressIndicator fx:id="progress" prefWidth="24" prefHeight="24" visible="false"/>
+            <ProgressBar fx:id="strengthBar" progress="0" prefWidth="140">
+                <HBox.margin>
+                    <Insets left="18"/>
+                </HBox.margin>
+            </ProgressBar>
+            <Label fx:id="strengthLabel" text="0%" styleClass="muted"/>
             <Region HBox.hgrow="ALWAYS"/>
             <Button text="New" onAction="#onClear" styleClass="secondary-button"/>
             <Button text="Import JSON" onAction="#onImportJson" styleClass="secondary-button"/>
