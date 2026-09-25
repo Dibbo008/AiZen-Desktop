@@ -22,6 +22,7 @@ public class MainController {
     @FXML private Button btnResume;
     @FXML private Button btnCover;
     @FXML private Button btnSaved;
+    @FXML private Button btnInterview;
     @FXML private Button btnTheme;
 
     private final Map<View, Button> navButtons = new EnumMap<>(View.class);
@@ -38,6 +39,7 @@ public class MainController {
         navButtons.put(View.COVER_LETTER, btnCover);
         navButtons.put(View.SAVED, btnSaved);
         navButtons.put(View.PREVIEW, btnSaved);
+        navButtons.put(View.INTERVIEW_PREP, btnInterview);
         lblUser.setText("Signed in as\n" + Session.getCurrentUser().getFullName());
         updateThemeButton();
         navigate(View.DASHBOARD);
@@ -65,6 +67,8 @@ public class MainController {
     @FXML private void onCoverLetter() { navigate(View.COVER_LETTER); }
 
     @FXML private void onSaved() { navigate(View.SAVED); }
+
+    @FXML private void onInterviewPrep() { navigate(View.INTERVIEW_PREP); }
 
     @FXML
     private void onToggleTheme() {
