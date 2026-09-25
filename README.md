@@ -10,6 +10,9 @@ A JavaFX desktop application for building professional resumes and cover letters
 - AI-generated summaries and cover letters, with automatic offline fallback
 - PDF and JSON export/import
 - Searchable saved-resumes table with edit, duplicate, and delete
+- Interview Prep — sector-wise chart of the most commonly asked interview topics
+- To The Point — a two-question wizard that maps a target role to hand-curated learning resources (AI-assisted sector matching, zero hallucinated links)
+- Job Application Tracker — log every application with company, role, status and notes, and follow it through to an offer
 - Light and dark themes
 
 ## Tech Stack
@@ -38,7 +41,7 @@ Without a key, or if a request fails, the app automatically falls back to a loca
 
 ## Database
 
-SQLite with seven tables — `users`, `resumes`, and five resume-child tables (`experiences`, `education`, `projects`, `certifications`, `skills`) — created automatically on first run. Child tables cascade-delete with their parent resume. All queries use `PreparedStatement`, and resume writes are transactional.
+SQLite with nine tables — `users`, `resumes`, five resume-child tables (`experiences`, `education`, `projects`, `certifications`, `skills`), and `applications` (for the Job Application Tracker) — created automatically on first run. Every child table cascade-deletes with its parent (`resumes` cascade from `users`; the five resume-child tables cascade from `resumes`; `applications` cascades from `users`). All queries use `PreparedStatement`, and resume writes are transactional.
 
 ## Academic Concepts Demonstrated
 
@@ -52,6 +55,7 @@ SQLite with seven tables — `users`, `resumes`, and five resume-child tables (`
 | Multithreading | 3-thread pool via `TaskManager`, keeping the UI responsive |
 | Exception handling | Checked/unchecked exceptions with transactional rollback |
 | Asynchronous networking | `HttpClient.sendAsync()` with `CompletableFuture` |
+| Networking & JSON parsing | `ApiService` — real HTTP POST to the Gemini REST API, response parsed with Jackson (`JsonNode`) |
 
 ---
 
