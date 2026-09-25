@@ -501,3 +501,82 @@
     -fx-background-color: linear-gradient(to right, #0b86a8, #5747c2);
     -fx-effect: dropshadow(gaussian, rgba(10, 162, 201, 0.55), 14, 0.15, 0, 0);
 }
+
+/* ---------------- To The Point (wizard + resource cards) ---------------- */
+.ttp-card {
+    -fx-background-color: -az-surface;
+    -fx-background-radius: 16;
+    -fx-border-color: -az-border;
+    -fx-border-radius: 16;
+    -fx-border-width: 1;
+    -fx-padding: 34 28;
+    -fx-effect: dropshadow(gaussian, rgba(10, 162, 201, 0.14), 26, 0, 0, 8);
+}
+
+.ttp-question {
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -az-ink;
+}
+
+.ttp-result-header {
+    -fx-padding: 4 0 0 0;
+}
+
+.ttp-sector-title {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -az-ink;
+    -fx-effect: dropshadow(gaussian, rgba(10, 162, 201, 0.25), 8, 0.1, 0, 0);
+}
+
+.ttp-resource-card {
+    -fx-background-color: -az-surface;
+    -fx-background-radius: 12;
+    -fx-border-color: -az-border;
+    -fx-border-radius: 12;
+    -fx-border-width: 1;
+    -fx-padding: 16 18;
+    -fx-effect: dropshadow(gaussian, rgba(10, 162, 201, 0.08), 12, 0, 0, 4);
+}
+
+.ttp-resource-card:hover {
+    -fx-border-color: -az-accent;
+    -fx-effect: dropshadow(gaussian, rgba(10, 162, 201, 0.22), 18, 0, 0, 6);
+}
+
+.ttp-resource-header {
+    -fx-alignment: CENTER_LEFT;
+}
+
+.ttp-resource-title {
+    -fx-font-size: 13.5px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -az-ink;
+}
+
+.ttp-resource-tag {
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -az-accent-hover;
+    -fx-background-color: -az-accent-soft;
+    -fx-background-radius: 10;
+    -fx-padding: 2 9;
+}
+
+.ttp-resource-desc {
+    -fx-font-size: 12px;
+    -fx-text-fill: -az-muted;
+}
+
+.ttp-resource-link {
+    -fx-font-size: 12px;
+    -fx-text-fill: -az-accent;
+    -fx-padding: 0;
+    -fx-border-color: transparent;
+}
+
+.ttp-resource-link:hover {
+    -fx-text-fill: -az-accent-hover;
+    -fx-underline: true;
+}
