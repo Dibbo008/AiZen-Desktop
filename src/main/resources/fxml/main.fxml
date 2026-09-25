@@ -23,6 +23,7 @@
             <Button fx:id="btnSaved" text="Saved Resumes" onAction="#onSaved" styleClass="nav-button" maxWidth="Infinity"/>
             <Button fx:id="btnInterview" text="Interview Prep" onAction="#onInterviewPrep" styleClass="nav-button" maxWidth="Infinity"/>
             <Button fx:id="btnToThePoint" text="To The Point" onAction="#onToThePoint" styleClass="nav-button" maxWidth="Infinity"/>
+            <Button fx:id="btnApplications" text="Applications" onAction="#onApplications" styleClass="nav-button" maxWidth="Infinity"/>
             <Region VBox.vgrow="ALWAYS"/>
             <Label fx:id="lblUser" styleClass="sidebar-user" wrapText="true"/>
             <Button fx:id="btnTheme" text="Dark mode" onAction="#onToggleTheme" styleClass="nav-button" maxWidth="Infinity"/>
