@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.aizen.controller.ApplicationTrackerController"
+            styleClass="ip-shell">
+    <top>
+        <VBox spacing="16" styleClass="ip-toolbar">
+            <padding>
+                <Insets top="16" right="20" bottom="16" left="20"/>
+            </padding>
+            <VBox spacing="4">
+                <Label text="Job Application Tracker" styleClass="page-title, ip-title"/>
+                <Label text="Log every application and its status in one place - double-click a row to edit it."
+                       styleClass="muted, ip-subtitle" wrapText="true"/>
+            </VBox>
+
+            <GridPane hgap="12" vgap="10" styleClass="at-form">
+                <columnConstraints>
+                    <ColumnConstraints percentWidth="30"/>
+                    <ColumnConstraints percentWidth="30"/>
+                    <ColumnConstraints percentWidth="20"/>
+                    <ColumnConstraints percentWidth="20"/>
+                </columnConstraints>
+
+                <TextField fx:id="tfCompany" promptText="Company (e.g. Google)" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                <TextField fx:id="tfRole" promptText="Role (e.g. Backend Intern)" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+                <ChoiceBox fx:id="cbStatus" maxWidth="Infinity" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
+                <DatePicker fx:id="dpDate" maxWidth="Infinity" GridPane.columnIndex="3" GridPane.rowIndex="0"/>
+
+                <TextArea fx:id="taNotes" promptText="Notes (optional) - referral, recruiter contact, round details..."
+                          prefRowCount="2" wrapText="true"
+                          GridPane.columnIndex="0" GridPane.rowIndex="1" GridPane.columnSpan="4"/>
+            </GridPane>
+
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Button fx:id="btnSave" text="Add application" onAction="#onSave" styleClass="primary-button"/>
+                <Button text="Clear form" onAction="#onClear" styleClass="secondary-button"/>
+                <ProgressIndicator fx:id="progress" prefWidth="20" prefHeight="20" visible="false"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Label fx:id="lblFormError" styleClass="status-error" managed="false" visible="false" wrapText="true" maxWidth="360"/>
+            </HBox>
+        </VBox>
+    </top>
+    <center>
+        <VBox styleClass="ip-chart-card" BorderPane.alignment="CENTER">
+            <BorderPane.margin>
+                <Insets top="16" right="20" bottom="10" left="20"/>
+            </BorderPane.margin>
+            <HBox styleClass="ip-chart-header" alignment="CENTER_LEFT" spacing="10">
+                <Region styleClass="ip-legend-dot"/>
+                <Label text="Tracked Applications" styleClass="ip-chart-title"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Button text="Delete selected" onAction="#onDeleteSelected" styleClass="danger-button-small"/>
+            </HBox>
+            <TableView fx:id="table" VBox.vgrow="ALWAYS">
+                <VBox.margin>
+                    <Insets top="4" right="16" bottom="16" left="16"/>
+                </VBox.margin>
+                <columns>
+                    <TableColumn fx:id="colCompany" text="Company" prefWidth="160"/>
+                    <TableColumn fx:id="colRole" text="Role" prefWidth="160"/>
+                    <TableColumn fx:id="colStatus" text="Status" prefWidth="110"/>
+                    <TableColumn fx:id="colDate" text="Applied on" prefWidth="110"/>
+                    <TableColumn fx:id="colNotes" text="Notes" prefWidth="220"/>
+                </columns>
+                <columnResizePolicy>
+                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                </columnResizePolicy>
+            </TableView>
+        </VBox>
+    </center>
+    <bottom>
+        <HBox styleClass="status-bar">
+            <padding>
+                <Insets top="8" right="20" bottom="8" left="20"/>
+            </padding>
+            <Label fx:id="statusLabel" text="Loading applications..."/>
+        </HBox>
+    </bottom>
+</BorderPane>
