@@ -21,6 +21,7 @@
             <Button fx:id="btnResume" text="Resume Builder" onAction="#onResume" styleClass="nav-button" maxWidth="Infinity"/>
             <Button fx:id="btnCover" text="Cover Letter" onAction="#onCoverLetter" styleClass="nav-button" maxWidth="Infinity"/>
             <Button fx:id="btnSaved" text="Saved Resumes" onAction="#onSaved" styleClass="nav-button" maxWidth="Infinity"/>
+            <Button fx:id="btnInterview" text="Interview Prep" onAction="#onInterviewPrep" styleClass="nav-button" maxWidth="Infinity"/>
             <Region VBox.vgrow="ALWAYS"/>
             <Label fx:id="lblUser" styleClass="sidebar-user" wrapText="true"/>
             <Button fx:id="btnTheme" text="Dark mode" onAction="#onToggleTheme" styleClass="nav-button" maxWidth="Infinity"/>
