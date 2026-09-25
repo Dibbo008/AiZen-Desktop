@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.aizen.controller.InterviewPrepController">
+    <top>
+        <VBox spacing="4" styleClass="toolbar">
+            <padding>
+                <Insets top="14" right="20" bottom="14" left="20"/>
+            </padding>
+            <HBox spacing="12" alignment="CENTER_LEFT">
+                <Label text="Interview Question Insights" styleClass="page-title"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Label text="Sector:"/>
+                <ChoiceBox fx:id="cbSector" prefWidth="220"/>
+            </HBox>
+            <Label text="A general guide to commonly reported interview themes - not statistics from a specific survey."
+                   styleClass="muted" wrapText="true"/>
+        </VBox>
+    </top>
+    <center>
+        <BarChart fx:id="chart" animated="false" legendVisible="false">
+            <BorderPane.margin>
+                <Insets top="10" right="20" bottom="20" left="20"/>
+            </BorderPane.margin>
+            <xAxis>
+                <CategoryAxis label="Topic" tickLabelRotation="-35"/>
+            </xAxis>
+            <yAxis>
+                <NumberAxis label="Relative importance (out of 10)" lowerBound="0" upperBound="10" tickUnit="1"/>
+            </yAxis>
+        </BarChart>
+    </center>
+</BorderPane>
