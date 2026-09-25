@@ -230,3 +230,23 @@
 .ttp-resource-link:hover {
     -fx-text-fill: #9c85ff;
 }
+/* ---------------- Application Tracker: neon badges ---------------- */
+.at-badge-applied {
+    -fx-text-fill: #7ff2ff;
+    -fx-background-color: rgba(69, 224, 255, 0.16);
+}
+
+.at-badge-interview {
+    -fx-text-fill: #ffcf5c;
+    -fx-background-color: rgba(255, 207, 92, 0.16);
+}
+
+.at-badge-offer {
+    -fx-text-fill: #6ee7a0;
+    -fx-background-color: rgba(110, 231, 160, 0.16);
+}
+
+.at-badge-rejected {
+    -fx-text-fill: #ff8f8f;
+    -fx-background-color: rgba(255, 143, 143, 0.16);
+}
