@@ -69,6 +69,19 @@ public final class DatabaseSetup {
                 resume_id INTEGER NOT NULL,
                 name TEXT,
                 FOREIGN KEY (resume_id) REFERENCES resumes(id) ON DELETE CASCADE
+            )""",
+            """
+            CREATE TABLE IF NOT EXISTS applications (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                user_id INTEGER NOT NULL,
+                company TEXT NOT NULL,
+                role_title TEXT NOT NULL,
+                status TEXT NOT NULL DEFAULT 'Applied',
+                applied_date TEXT,
+                notes TEXT,
+                created_at TEXT,
+                updated_at TEXT,
+                FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
             )"""
     };
 
