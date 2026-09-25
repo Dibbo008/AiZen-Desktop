@@ -387,3 +387,117 @@
 .hyperlink {
     -fx-text-fill: -az-accent;
 }
+
+
+/* ---------------- Interview Prep (futuristic insight panel) ---------------- */
+.ip-shell {
+    -fx-background-color: -az-bg;
+}
+
+.ip-toolbar {
+    -fx-background-color: -az-surface;
+    -fx-background-radius: 14;
+    -fx-border-color: -az-border;
+    -fx-border-radius: 14;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(gaussian, rgba(10, 162, 201, 0.12), 20, 0, 0, 6);
+}
+
+.ip-title {
+    -fx-effect: dropshadow(gaussian, rgba(10, 162, 201, 0.25), 8, 0.1, 0, 0);
+}
+
+.ip-subtitle {
+    -fx-font-size: 11.5px;
+}
+
+.ip-caption {
+    -fx-font-size: 10.5px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -az-muted;
+}
+
+.ip-select {
+    -fx-background-color: -az-surface-alt;
+    -fx-border-color: -az-accent;
+    -fx-border-radius: 20;
+    -fx-background-radius: 20;
+    -fx-padding: 2 8;
+}
+
+.ip-select .label {
+    -fx-text-fill: -az-ink;
+    -fx-font-weight: bold;
+    -fx-padding: 4 6;
+}
+
+.ip-chart-card {
+    -fx-background-color: -az-surface;
+    -fx-background-radius: 16;
+    -fx-border-color: -az-border;
+    -fx-border-radius: 16;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(gaussian, rgba(10, 162, 201, 0.14), 26, 0, 0, 8);
+}
+
+.ip-chart-header {
+    -fx-padding: 16 20 4 20;
+}
+
+.ip-chart-title {
+    -fx-font-size: 13.5px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -az-ink;
+}
+
+.ip-legend-dot {
+    -fx-min-width: 10;
+    -fx-min-height: 10;
+    -fx-max-width: 10;
+    -fx-max-height: 10;
+    -fx-background-color: linear-gradient(to right, #0aa2c9, #6a5bde);
+    -fx-background-radius: 50%;
+    -fx-effect: dropshadow(gaussian, rgba(10, 162, 201, 0.5), 6, 0.3, 0, 0);
+}
+
+.ip-chart {
+    -fx-background-color: transparent;
+    -fx-padding: 4 18 12 8;
+}
+
+.ip-chart .chart-plot-background {
+    -fx-background-color: transparent;
+}
+
+.ip-chart .chart-vertical-grid-lines {
+    -fx-stroke: -az-border;
+    -fx-opacity: 0.6;
+}
+
+.ip-chart .chart-horizontal-grid-lines {
+    -fx-stroke: transparent;
+}
+
+.ip-chart .axis {
+    -fx-tick-label-fill: -az-muted;
+    -fx-font-size: 11px;
+    -fx-tick-mark-visible: false;
+    -fx-minor-tick-visible: false;
+}
+
+.ip-chart .axis-label {
+    -fx-text-fill: -az-muted;
+    -fx-font-size: 10.5px;
+}
+
+.ip-chart .chart-bar {
+    -fx-background-color: linear-gradient(to right, #0aa2c9, #6a5bde);
+    -fx-background-insets: 0;
+    -fx-background-radius: 0 8 8 0;
+    -fx-effect: dropshadow(gaussian, rgba(10, 162, 201, 0.30), 8, 0.05, 0, 0);
+}
+
+.ip-chart .chart-bar:hover {
+    -fx-background-color: linear-gradient(to right, #0b86a8, #5747c2);
+    -fx-effect: dropshadow(gaussian, rgba(10, 162, 201, 0.55), 14, 0.15, 0, 0);
+}
