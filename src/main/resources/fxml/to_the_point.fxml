@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.aizen.controller.ToThePointController"
+            styleClass="ip-shell">
+    <top>
+        <VBox spacing="6" styleClass="ip-toolbar">
+            <padding>
+                <Insets top="16" right="20" bottom="16" left="20"/>
+            </padding>
+            <Label text="To The Point" styleClass="page-title, ip-title"/>
+            <Label text="Answer two quick questions and get hand-picked, verified resources to help you crack the job."
+                   styleClass="muted, ip-subtitle" wrapText="true"/>
+        </VBox>
+    </top>
+    <center>
+        <ScrollPane fitToWidth="true" styleClass="scroll-pane, edge-to-edge">
+            <BorderPane.margin>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </BorderPane.margin>
+            <VBox spacing="20" alignment="TOP_CENTER">
+                <padding>
+                    <Insets top="10" right="10" bottom="30" left="10"/>
+                </padding>
+
+                <!-- Step 1: which role -->
+                <VBox fx:id="stepRole" spacing="14" alignment="CENTER" styleClass="ttp-card" maxWidth="560">
+                    <Label text="Q1. Which role or job are you aiming for?" styleClass="ttp-question"/>
+                    <TextField fx:id="tfRole" promptText="e.g. Junior Frontend Developer, Digital Marketer..."
+                               maxWidth="420"/>
+                    <Label fx:id="lblRoleError" styleClass="status-error" managed="false" visible="false"/>
+                    <Button text="Continue" onAction="#onRoleNext" styleClass="primary-button"/>
+                </VBox>
+
+                <!-- Step 2: experience level -->
+                <VBox fx:id="stepLevel" spacing="14" alignment="CENTER" styleClass="ttp-card" maxWidth="560"
+                      managed="false" visible="false">
+                    <Label text="Q2. What's your experience level?" styleClass="ttp-question"/>
+                    <HBox spacing="10" alignment="CENTER">
+                        <Button text="Entry-level" onAction="#onLevelEntry" styleClass="secondary-button"/>
+                        <Button text="Mid-level" onAction="#onLevelMid" styleClass="secondary-button"/>
+                        <Button text="Experienced" onAction="#onLevelSenior" styleClass="secondary-button"/>
+                    </HBox>
+                    <Button text="Back" onAction="#onBackToRole" styleClass="danger-button-small"/>
+                </VBox>
+
+                <!-- Loading -->
+                <VBox fx:id="stepLoading" spacing="12" alignment="CENTER" managed="false" visible="false">
+                    <ProgressIndicator prefWidth="36" prefHeight="36"/>
+                    <Label text="Finding the best resources for you..." styleClass="muted"/>
+                </VBox>
+
+                <!-- Results -->
+                <VBox fx:id="stepResult" spacing="16" alignment="TOP_CENTER" managed="false" visible="false" maxWidth="600">
+                    <HBox spacing="10" alignment="CENTER" styleClass="ttp-result-header">
+                        <Region styleClass="ip-legend-dot"/>
+                        <Label fx:id="lblSector" text="Software Engineering" styleClass="ttp-sector-title"/>
+                    </HBox>
+                    <Label fx:id="lblSectorNote" styleClass="ip-caption" wrapText="true" maxWidth="500"/>
+                    <VBox fx:id="resourceBox" spacing="12" maxWidth="560"/>
+                    <Button text="Start over" onAction="#onRestart" styleClass="secondary-button"/>
+                </VBox>
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>
