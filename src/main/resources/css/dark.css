@@ -162,3 +162,39 @@
 .hyperlink {
     -fx-text-fill: #7ff2ff;
 }
+
+
+/* ---------------- Interview Prep: neon override ---------------- */
+.ip-toolbar {
+    -fx-border-color: #1d2b41;
+    -fx-effect: dropshadow(gaussian, rgba(69, 224, 255, 0.14), 24, 0, 0, 8);
+}
+
+.ip-select {
+    -fx-border-color: #45e0ff;
+    -fx-background-color: #0a0e18;
+}
+
+.ip-chart-card {
+    -fx-border-color: #1d2b41;
+    -fx-effect: dropshadow(gaussian, rgba(69, 224, 255, 0.16), 32, 0, 0, 10);
+}
+
+.ip-legend-dot {
+    -fx-background-color: linear-gradient(to right, #45e0ff, #7c5cff);
+    -fx-effect: dropshadow(gaussian, rgba(69, 224, 255, 0.6), 8, 0.4, 0, 0);
+}
+
+.ip-chart .chart-vertical-grid-lines {
+    -fx-stroke: #1d2b41;
+}
+
+.ip-chart .chart-bar {
+    -fx-background-color: linear-gradient(to right, #45e0ff, #7c5cff);
+    -fx-effect: dropshadow(gaussian, rgba(69, 224, 255, 0.45), 10, 0.1, 0, 0);
+}
+
+.ip-chart .chart-bar:hover {
+    -fx-background-color: linear-gradient(to right, #7ff2ff, #9c85ff);
+    -fx-effect: dropshadow(gaussian, rgba(69, 224, 255, 0.7), 16, 0.2, 0, 0);
+}
