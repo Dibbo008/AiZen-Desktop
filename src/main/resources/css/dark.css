@@ -198,3 +198,35 @@
     -fx-background-color: linear-gradient(to right, #7ff2ff, #9c85ff);
     -fx-effect: dropshadow(gaussian, rgba(69, 224, 255, 0.7), 16, 0.2, 0, 0);
 }
+
+/* ---------------- To The Point: neon override ---------------- */
+.ttp-card {
+    -fx-border-color: #1d2b41;
+    -fx-effect: dropshadow(gaussian, rgba(69, 224, 255, 0.16), 30, 0, 0, 10);
+}
+
+.ttp-sector-title {
+    -fx-effect: dropshadow(gaussian, rgba(69, 224, 255, 0.4), 10, 0.1, 0, 0);
+}
+
+.ttp-resource-card {
+    -fx-border-color: #1d2b41;
+    -fx-effect: dropshadow(gaussian, rgba(69, 224, 255, 0.10), 14, 0, 0, 4);
+}
+
+.ttp-resource-card:hover {
+    -fx-border-color: #45e0ff;
+    -fx-effect: dropshadow(gaussian, rgba(69, 224, 255, 0.30), 20, 0, 0, 6);
+}
+
+.ttp-resource-tag {
+    -fx-text-fill: #7ff2ff;
+}
+
+.ttp-resource-link {
+    -fx-text-fill: #7ff2ff;
+}
+
+.ttp-resource-link:hover {
+    -fx-text-fill: #9c85ff;
+}
