@@ -21,7 +21,8 @@ public final class SceneManager {
         RESUME("/fxml/resume.fxml"),
         COVER_LETTER("/fxml/cover_letter.fxml"),
         SAVED("/fxml/saved_resumes.fxml"),
-        PREVIEW("/fxml/preview.fxml");
+        PREVIEW("/fxml/preview.fxml"),
+        INTERVIEW_PREP("/fxml/interview_prep.fxml");
 
         private final String path;
 
