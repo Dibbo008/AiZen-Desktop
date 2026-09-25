@@ -6,33 +6,50 @@
 <?import javafx.scene.layout.*?>
 
 <BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.aizen.controller.InterviewPrepController">
+            fx:controller="com.aizen.controller.InterviewPrepController"
+            styleClass="ip-shell">
     <top>
-        <VBox spacing="4" styleClass="toolbar">
+        <VBox spacing="10" styleClass="ip-toolbar">
             <padding>
-                <Insets top="14" right="20" bottom="14" left="20"/>
+                <Insets top="16" right="20" bottom="16" left="20"/>
             </padding>
-            <HBox spacing="12" alignment="CENTER_LEFT">
-                <Label text="Interview Question Insights" styleClass="page-title"/>
+            <HBox spacing="16" alignment="CENTER_LEFT">
+                <VBox spacing="3">
+                    <Label text="Interview Question Insights" styleClass="page-title, ip-title"/>
+                    <Label text="A general guide to commonly reported interview themes - not statistics from a specific survey."
+                           styleClass="muted, ip-subtitle" wrapText="true" maxWidth="480"/>
+                </VBox>
                 <Region HBox.hgrow="ALWAYS"/>
-                <Label text="Sector:"/>
-                <ChoiceBox fx:id="cbSector" prefWidth="220"/>
+                <VBox spacing="4" alignment="CENTER_RIGHT">
+                    <Label text="SECTOR" styleClass="ip-caption"/>
+                    <ChoiceBox fx:id="cbSector" prefWidth="240" styleClass="ip-select"/>
+                </VBox>
             </HBox>
-            <Label text="A general guide to commonly reported interview themes - not statistics from a specific survey."
-                   styleClass="muted" wrapText="true"/>
         </VBox>
     </top>
     <center>
-        <BarChart fx:id="chart" animated="false" legendVisible="false">
+        <VBox styleClass="ip-chart-card" BorderPane.alignment="CENTER">
             <BorderPane.margin>
-                <Insets top="10" right="20" bottom="20" left="20"/>
+                <Insets top="16" right="20" bottom="20" left="20"/>
             </BorderPane.margin>
-            <xAxis>
-                <CategoryAxis label="Topic" tickLabelRotation="-35"/>
-            </xAxis>
-            <yAxis>
-                <NumberAxis label="Relative importance (out of 10)" lowerBound="0" upperBound="10" tickUnit="1"/>
-            </yAxis>
-        </BarChart>
+            <HBox styleClass="ip-chart-header" alignment="CENTER_LEFT" spacing="10">
+                <Region styleClass="ip-legend-dot"/>
+                <Label text="Top Topics by Relative Importance" styleClass="ip-chart-title"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Label fx:id="lblCount" text="10 topics" styleClass="ip-caption"/>
+                <Label text="•" styleClass="ip-caption"/>
+                <Label text="Scale 0-10" styleClass="ip-caption"/>
+            </HBox>
+            <BarChart fx:id="chart" animated="false" legendVisible="false"
+                      horizontalGridLinesVisible="false" verticalGridLinesVisible="true"
+                      categoryGap="10" barGap="0" styleClass="ip-chart" VBox.vgrow="ALWAYS">
+                <xAxis>
+                    <NumberAxis label="Relative importance (out of 10)" lowerBound="0" upperBound="10" tickUnit="1" side="BOTTOM"/>
+                </xAxis>
+                <yAxis>
+                    <CategoryAxis side="LEFT"/>
+                </yAxis>
+            </BarChart>
+        </VBox>
     </center>
 </BorderPane>
